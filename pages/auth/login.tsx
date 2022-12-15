@@ -10,8 +10,6 @@ const Login = (props:Props): JSX.Element => {
         email:"",
         password:""
     })
-
-
     
     const handleSubmit:FormEventHandler =  async (e) => {
         e.preventDefault()
