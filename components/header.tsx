@@ -14,6 +14,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import { useAtom } from 'jotai'
 import { cartAtom } from '../lib/atoms';
+import Router from 'next/router';
 
 export default function Header() {
   const [auth, setAuth] = React.useState(true);
@@ -80,8 +81,9 @@ export default function Header() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={()=>Router.replace("/users")}>User</MenuItem>
+                <MenuItem onClick={()=>Router.replace("/profile")}>Profile</MenuItem>
+                <MenuItem onClick={()=>Router.replace("/nested")}>Nested</MenuItem>
                 <MenuItem onClick={()=>signOut()}>Logout</MenuItem>
               </Menu>
             </div>

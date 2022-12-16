@@ -37,22 +37,6 @@ const Nested = (props:Props): JSX.Element => {
     }
     return (
         <div className="card-container">
-            <form onSubmit={handleSubmit}>
-                <input 
-                 className="input"
-                 placeholder="Name"
-                 value={userInfo.name}
-                 onChange={(e)=>setUserInfo({...userInfo,name:e.target.value})}
-                />
-                <input 
-                 className="input"
-                 placeholder="Email"
-                 value={userInfo.email}
-                 onChange={(e)=>setUserInfo({...userInfo,email:e.target.value})}
-                />
-                <button className="input" type="submit">Save</button>
-            </form>
-            <br/>
             <List>
                     {users &&
                     users.map((user,index) => {
