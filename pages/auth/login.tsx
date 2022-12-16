@@ -21,7 +21,7 @@ const Login = (props:Props): JSX.Element => {
         })
 
         if (response?.status == 200) {
-                Router.replace("/profile")
+                Router.replace("/nested")
         } 
         if (response?.error == "Invalid credential") {
             toast(response.error)

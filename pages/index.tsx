@@ -10,7 +10,7 @@ export default function Home() {
 
   useEffect(()=>{
       if (status == "authenticated") {
-          Router.replace("/profile")
+          Router.replace("/nested")
       }
   },[status])
 
