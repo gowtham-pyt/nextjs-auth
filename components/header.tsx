@@ -12,12 +12,15 @@ import Menu from '@mui/material/Menu';
 import { useSession, signOut } from "next-auth/react";
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import { useAtom } from 'jotai'
+import { cartAtom } from '../lib/atoms';
 
 export default function Header() {
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const { status, data } = useSession()
-
+  console.log('cartAtom',cartAtom)
+  const [cart, setCart] = useAtom(cartAtom)
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setAuth(event.target.checked);
   };
@@ -45,6 +48,11 @@ export default function Header() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             {data?.user?.name}
           </Typography>
+          <IconButton onClick={()=>{
+          setCart( cart.id ? { ...cart, quantity: cart.quantity + 1 } : { id: 123, quantity: cart.quantity + 1 } )
+          }}>
+            Add + {cart?.quantity}
+          </IconButton>
           {auth && (
             <div>
               <IconButton

@@ -22,12 +22,37 @@ export const getStaticProps = async () => {
       props: { users: json },
     };
   };
+
  
 
 const Nested = (props:Props): JSX.Element => {
     const { users } = props;
+    const [ userInfo, setUserInfo ] = useState({
+        name:"",
+        email:""
+    })
+    const handleSubmit:FormEventHandler = (e) => {
+        e.preventDefault();
+        console.log('userInfo',userInfo)
+    }
     return (
         <div className="card-container">
+            <form onSubmit={handleSubmit}>
+                <input 
+                 className="input"
+                 placeholder="Name"
+                 value={userInfo.name}
+                 onChange={(e)=>setUserInfo({...userInfo,name:e.target.value})}
+                />
+                <input 
+                 className="input"
+                 placeholder="Email"
+                 value={userInfo.email}
+                 onChange={(e)=>setUserInfo({...userInfo,email:e.target.value})}
+                />
+                <button className="input" type="submit">Save</button>
+            </form>
+            <br/>
             <List>
                     {users &&
                     users.map((user,index) => {

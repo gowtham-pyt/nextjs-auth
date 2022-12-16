@@ -31,4 +31,31 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  flex-direction: column;
+}
+
+.card-container form {
+  display: flex;
+  flex-direction: column;
+}
+.card-container form .input {
+  padding: 10px;
+  margin: 10px;
+}
+
+.user-container {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+}
+
+.user-form .form-control {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.user-form .form-control .user-input {
+  padding: 5px ;
 }
